@@ -1,0 +1,38 @@
+[
+  {
+    "Rules": [
+      {
+        "ResourceType": "index",
+        "Resource": [
+          "index/vector-db/*"
+        ],
+        "Permission": [
+          "aoss:CreateIndex",
+          "aoss:DeleteIndex",
+          "aoss:UpdateIndex",
+          "aoss:DescribeIndex",
+          "aoss:ReadDocument",
+          "aoss:WriteDocument"
+        ]
+      },
+      {
+        "ResourceType": "collection",
+        "Resource": [
+          "collection/vector-db"
+        ],
+        "Permission": [
+          "aoss:DescribeCollectionItems",
+          "aoss:CreateCollectionItems",
+          "aoss:UpdateCollectionItems"
+        ]
+      }
+    ],
+    "Principal": [
+      "arn:aws:iam::387143718169:role/aster-policy-rag-query-role",
+      "arn:aws:iam::387143718169:role/aster-policy-rag-ingest-role",
+      "arn:aws:iam::387143718169:user/aws-de-bootcamp-4",
+      "arn:aws:iam::387143718169:user/tempds",
+      "arn:aws:iam::387143718169:root"
+    ]
+  }
+]

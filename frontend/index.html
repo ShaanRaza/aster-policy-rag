@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Policy RAG Assistant</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="query-panel">
+        <div class="title-row">
+          <div>
+            <p class="eyebrow">AWS Serverless RAG</p>
+            <h1>Policy Assistant</h1>
+          </div>
+          <span class="status-pill" id="apiStatus">API not checked</span>
+        </div>
+
+        <form id="questionForm" class="question-form">
+          <label for="questionInput">Ask a policy question</label>
+          <textarea
+            id="questionInput"
+            name="question"
+            rows="5"
+            placeholder="What approvals are needed for purchases above $5,000?"
+            required
+          ></textarea>
+
+          <div class="form-actions">
+            <label class="topk-control" for="topK">
+              <span>Top K</span>
+              <input id="topK" type="number" min="1" max="10" value="5" />
+            </label>
+            <button type="submit" id="askButton">Ask</button>
+          </div>
+        </form>
+
+        <div class="examples">
+          <button type="button" data-question="How many days of paid annual leave do employees receive?">Leave</button>
+          <button type="button" data-question="What is the domestic hotel reimbursement limit?">Travel</button>
+          <button type="button" data-question="Can employees use personal devices for company work?">Security</button>
+          <button type="button" data-question="What approvals are required for purchases above $5,000?">Procurement</button>
+        </div>
+      </section>
+
+      <section class="answer-panel">
+        <div class="panel-header">
+          <h2>Answer</h2>
+          <span id="latency"></span>
+        </div>
+        <article id="answer" class="answer empty">Ask a question to see a grounded answer with citations.</article>
+      </section>
+
+      <section class="sources-panel">
+        <div class="panel-header">
+          <h2>Retrieved Sources</h2>
+          <span id="sourceCount"></span>
+        </div>
+        <div id="sources" class="sources empty">Source chunks will appear here after retrieval.</div>
+      </section>
+    </main>
+
+    <script src="./config.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
+

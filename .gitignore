@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+lambda_packages/
+data/generated_pdfs/
+.env
+tempds_credentials.csv
+tempds_accessKeys.csv
+*.csv
+lambda_build/
+.DS_Store

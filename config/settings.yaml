@@ -1,0 +1,32 @@
+aws:
+  region: us-east-1
+  account_id: "387143718169"
+  project_name: aster-policy-rag
+  source_bucket_name: aster-policy-rag-source-pdfs-387143718169-us-east-1
+  frontend_bucket_name: aster-policy-rag-frontend-387143718169-us-east-1
+  source_prefix: raw-pdfs/
+
+bedrock:
+  embedding_model_id: amazon.titan-embed-text-v2:0
+  llm_model_id: us.amazon.nova-lite-v1:0
+
+opensearch:
+  collection_name: aster-policy-rag-vector
+  endpoint: https://3o35kp5w5p9kc8gtzhpa.us-east-1.aoss.amazonaws.com
+  index_name: aster-policy-rag-index
+  vector_dimension: 1024
+
+lambda:
+  query_function_name: aster-policy-rag-query
+  ingest_function_name: aster-policy-rag-ingest
+  query_role_name: aster-policy-rag-query-role
+  ingest_role_name: aster-policy-rag-ingest-role
+
+api:
+  base_url: https://sl04qbrtfa.execute-api.us-east-1.amazonaws.com/prod
+
+rag:
+  top_k: 5
+  chunk_size: 1200
+  chunk_overlap: 180
+  max_context_chars: 12000
